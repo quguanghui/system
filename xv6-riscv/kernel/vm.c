@@ -208,11 +208,11 @@ uvmcreate()
 // for the very first process.
 // sz must be less than a page.
 void
-uvmfirst(pagetable_t pagetable, uchar *src, uint sz)
+uvmfirst(pagetable_t pagetable, uchar *src, uint sz) // user virtual address memory first pag
 {
   char *mem;
 
-  if(sz >= PGSIZE)
+  if(sz >= PGSIZE)  //check if sz is larger than 4k
     panic("uvmfirst: more than a page");
   mem = kalloc();
   memset(mem, 0, PGSIZE);
